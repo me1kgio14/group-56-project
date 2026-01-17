@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 
 import Error from './components/Error'
 import SearchBar from './components/SearchBar'
@@ -27,8 +25,8 @@ function App() {
   },[city])
 
   return (
-    <div className='flex-col w-[700px] h-[800px] rounded-2xl items-center justify-center '>
-      <div className='h-[70vh] w-full  border-b-1 '>      
+    <div className='flex-col w-175 h-200 rounded-2xl items-center justify-center '>
+      <div className='h-[70vh] w-full  border-b '>      
         {error ? <Error message={error} /> : 
         weather && <WeatherCard weather={weather} city={city} /> }
         <DayOrNight weather={weather} city={city} />
