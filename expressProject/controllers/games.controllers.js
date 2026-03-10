@@ -16,7 +16,7 @@ const getGameById = async (req, res) => {
     res.json(game);
 }
 
-const addGame = async (req,res) => {
+const postGame = async (req,res) => {
     const requestedData = req.body
     const data= req.data
     const keys = Object.keys(requestedData)
@@ -38,7 +38,7 @@ const addGame = async (req,res) => {
         res.status(400).json("this game already exists")
     }
 
-    requestedData.id = data.length
+    requestedData.id = Math.max(...data.map(game => game.id), 0) + 1
     data.push(requestedData)
 
     const info = await writeFile(DB,data)
@@ -77,9 +77,16 @@ const putGame = async (req,res) =>{
 const deleteGame = async (req,res) =>{
     const data = req.data
     const id = parseInt(req.params)
-    const mustDeletedProduct=data.filter(game => game.id !== id)
+    const mustDeletedProduct=data.filter(game => game.id === id)
 
     if(mustDeletedProduct === 0){
-        
+        res.status(400).json("invalid id")
     }
+
+    data=data.filter(game => game.id !== id)
+    await writeFile(DB,data)
+    res.status(204).json(`${mustDeletedProduct} was deleted successfully`)
 }
+
+
+module.exports={getAllGames,getGameById,postGame,putGame,deleteGame}
