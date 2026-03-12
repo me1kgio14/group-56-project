@@ -102,5 +102,9 @@ const deleteGame = async (req,res) =>{
     res.status(204).json();
 }
 
+const invalidMethod = (req, res) => {
+    res.status(405).json({ message: "Method Not Allowed" });
+}
 
-module.exports={getAllGames,getGameById,postGame,putGame,deleteGame}
+
+module.exports={getAllGames,getGameById,postGame,putGame,deleteGame,invalidMethod}
