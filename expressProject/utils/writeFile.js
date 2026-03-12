@@ -1,12 +1,12 @@
-const {writeFile} = require("fs/promises");
+const { writeFile } = require("fs/promises");
 
-const writeFile = async (path, data) => {
+
+const WriteFile = async (path, data) => {
     try {
-        await writeFile(path, data, "utf-8");
+        await writeFile(path, JSON.stringify(data, null, 2), "utf-8");
+    } catch (err) {
+        console.log("Error writing file:", err);
     }
-    catch (err) {
-        console.log(err);
-    }
-}
+};
 
-module.exports = writeFile
+module.exports = WriteFile;

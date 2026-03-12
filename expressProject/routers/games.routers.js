@@ -1,5 +1,5 @@
 const express = require("express")
-const gamesRouters = express.Router
+const gamesRouters = express.Router()
 const {getAllGames,getGameById,postGame,putGame,deleteGame} = require("../controllers/games.controllers")
 
 

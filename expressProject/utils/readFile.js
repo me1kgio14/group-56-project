@@ -1,13 +1,13 @@
-const {readfile} = require("fs/promises");
+const { readFile } = require("fs/promises");
 
-const readFile = async (path) => {
+const ReadFile = async (path) => {
     try {
-        const data = await readfile(path, "utf-8");
-        return data;
+        const data = await readFile(path, "utf-8");
+        return JSON.parse(data);
+    } catch (err) {
+        console.log("Error reading file:", err);
+        return [];
     }
-    catch (err) {
-        console.log(err);
-    }
-}
+};
 
-module.export = readFile;
+module.exports = ReadFile;

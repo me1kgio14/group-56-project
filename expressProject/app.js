@@ -1,11 +1,11 @@
-const express = require(express)
+const express = require("express")
 const ReadFile = require("./utils/readfile.js");
 const gameRouter = require ("./routers/games.routers.js");
 const DB = "./data/games.json"
 
 const app = express();
 
-
+app.set("json spaces", 1);
 app.use(express.json())
 
 app.use(async(req,res,next) =>{
@@ -15,6 +15,9 @@ app.use(async(req,res,next) =>{
     next()
 })
 
-
-
 app.use("/games", gameRouter)
+
+
+app.listen(3000, () => {
+    console.log("server is running on port 3000")
+})
