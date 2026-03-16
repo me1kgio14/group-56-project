@@ -14,7 +14,7 @@ const getGameById = async (req, res) => {
     const id = parseInt(req.params.id)
     const data = req.data
     const game =data.find((game) => game.id === id);
-    if (game.length === 0) {
+    if (!game) {
         return res.status(404).json({ message: "Game not found" });
     }
     res.json(game);
@@ -27,11 +27,11 @@ const postGame = async (req,res) => {
     const platforms = requestedData.platform
 
 
-    if (keys.length !== 3 ) {
-        res.status(400).json("invalid quantity of keys you should have: name,price and platform")
+    if (keys.length !== 4 ) {
+        return res.status(400).json("invalid quantity of keys you should have: name,price and platform")
     }
 
-    if (JSON.stringify(keys.sort()) !== JSON.stringify(["name","platform","price"].sort())){
+    if (JSON.stringify(keys.sort()) !== JSON.stringify(["name","platform","price","company"].sort())){
         return res.status(400).json("you have invalid keys names")
     }
     if (!platforms.every(game=> allowedPlatforms.includes(game))){
@@ -68,6 +68,7 @@ const putGame = async (req,res) =>{
     if (
         (updated.name === undefined || updated.name === Game.name) &&
         (updated.price === undefined || updated.price === Game.price) &&
+        (updated.company === undefined || updated.company === Game.company) &&
         platformCheck
     ){
         return res.status(400).json("nothing to update")
@@ -81,6 +82,9 @@ const putGame = async (req,res) =>{
     }
     if (updated.platform !== undefined){
         Game.platform = updated.platform
+    }
+    if (updated.company !== undefined){
+        Game.company = updated.company
     }
 
     await WriteFile(DB,data)
