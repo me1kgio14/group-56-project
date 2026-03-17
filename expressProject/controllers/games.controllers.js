@@ -1,4 +1,5 @@
 const WriteFile = require("../utils/writeFile");
+const crypto = require("crypto")
 const allowedPlatforms = ["PC", "PlayStation", "Xbox", "Nintendo Switch", "Mobile"];
 const path = require("path");
 
@@ -11,7 +12,7 @@ const getAllGames = async (req, res) => {
 }
 
 const getGameById = async (req, res) => {
-    const id = parseInt(req.params.id)
+    const id = req.params.id
     const data = req.data
     const game =data.find((game) => game.id === id);
     if (!game) {
@@ -42,7 +43,7 @@ const postGame = async (req,res) => {
         return res.status(400).json("this game already exists")
     }
 
-    requestedData.id = Math.max(...data.map(game => game.id), 0) + 1
+    requestedData.id = crypto.randomUUID()
     data.push(requestedData)
 
     await WriteFile(DB,data)
@@ -50,7 +51,7 @@ const postGame = async (req,res) => {
 }
 
 const putGame = async (req,res) =>{
-    const id = parseInt(req.params.id)
+    const id = req.params.id
     const updated = req.body
     const data = req.data
 
@@ -94,7 +95,7 @@ const putGame = async (req,res) =>{
 
 const deleteGame = async (req,res) =>{
     let data = req.data
-    const id = parseInt(req.params.id)
+    const id = req.params.id
     const mustDeletedProduct=data.filter(game => game.id === id)
 
     if(mustDeletedProduct.length === 0){

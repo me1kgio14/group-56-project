@@ -9,7 +9,7 @@
     ],
     "price": 29.99,
     "company": "CD Projekt Red",
-    "id": 1
+    "id": "8f3a6c1e-2d9b-4a7c-9e5a-1b2c3d4e5f60"
   },
   {
     "name": "Grand Theft Auto V",
@@ -20,7 +20,7 @@
     ],
     "price": 19.99,
     "company": "Rockstar Games",
-    "id": 2
+    "id": "1c7b9e20-6f4a-4d3e-b2a1-9f8e7d6c5b4a"
   },
   {
     "name": "Red Dead Redemption 2",
@@ -31,7 +31,7 @@
     ],
     "price": 39.99,
     "company": "Rockstar Games",
-    "id": 3
+    "id": "3a5d7c9e-8b1f-4c2a-a6d9-0e1f2a3b4c5d"
   },
   {
     "name": "aaaig",
@@ -40,7 +40,7 @@
     ],
     "price": 94,
     "company": "rockstar",
-    "id": 4
+    "id": "7b2e4d6f-9c1a-4b3e-8d5f-2a1c0e9b8d7f"
   },
   {
     "name": "Cyberpunk 2077",
@@ -51,18 +51,7 @@
     ],
     "price": 49.99,
     "company": "CD Projekt Red",
-    "id": 5
-  },
-  {
-    "name": "Assassin's Creed Valhalla",
-    "platform": [
-      "PC",
-      "PlayStation",
-      "Xbox"
-    ],
-    "price": 44.99,
-    "company": "Ubisoft",
-    "id": 6
+    "id": "5e1f3a7c-2b9d-4e6a-b8c1-3d2f4a6b7c8e"
   },
   {
     "name": "God of War",
@@ -72,7 +61,7 @@
     ],
     "price": 39.99,
     "company": "Santa Monica Studio",
-    "id": 7
+    "id": "2d4a6b8c-1e3f-4a9d-b7c5-8e2f1a3d6b9c"
   },
   {
     "name": "Horizon Zero Dawn",
@@ -82,7 +71,7 @@
     ],
     "price": 29.99,
     "company": "Guerrilla Games",
-    "id": 8
+    "id": "6c8e2a4b-9d1f-4b7c-a3e5-1f2d3c4b5a6e"
   },
   {
     "name": "Minecraft",
@@ -95,7 +84,7 @@
     ],
     "price": 26.95,
     "company": "Mojang",
-    "id": 9
+    "id": "4b7c2d9e-1a3f-4e6b-b8c5-7d2a1f3e6c9b"
   },
   {
     "name": "Fortnite",
@@ -108,6 +97,17 @@
     ],
     "price": 0,
     "company": "Epic Games",
-    "id": 10
+    "id": "1f3e5a7c-8b2d-4c6a-a9e1-2d3f4b6c8a9e"
+  },
+  {
+    "name": "terraria",
+    "price": 7.89,
+    "platform": [
+      "PC",
+      "PlayStation",
+      "Xbox"
+    ],
+    "company": "relogic",
+    "id": "96dc2003-7413-4997-9d4d-7dc2888d4edb"
   }
 ]
